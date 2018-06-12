@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Runtime.Serialization;
 
 using Models;
 
@@ -15,7 +18,6 @@ namespace Services
             // for ease of averaging later.
             Dictionary<string, List<WeatherData>> byCity = SeparateDataByCity(inputData);
 
-
             // Initialize an Array for returning CityAveragedWeatherDatas.
             // Set to length of the dictionary.
             CityAveragedWeatherData[] allCities = new CityAveragedWeatherData[byCity.Count]; 
@@ -25,8 +27,8 @@ namespace Services
             int i = 0;
             foreach( KeyValuePair<string, List<WeatherData>> city in byCity ){
                 allCities[i] = AverageWeatherData(city.Value);
+                i++;
             }
-
             return allCities;
         }
 

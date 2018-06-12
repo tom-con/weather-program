@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Models;
+using Services;
 
 namespace Weather
 {
@@ -30,6 +31,7 @@ namespace Weather
             services.AddDbContext<WeatherContext>(options =>
                   options.UseSqlite("Data Source=weather.db"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddScoped<WeatherService>();
 
             return services.BuildServiceProvider();
         }

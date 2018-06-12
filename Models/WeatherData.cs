@@ -11,5 +11,4 @@ namespace Models
         public decimal HighTemp { get; set; }
         public decimal LowTemp { get; set; }
     }
-
 }
