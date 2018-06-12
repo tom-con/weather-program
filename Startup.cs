@@ -25,16 +25,18 @@ namespace Weather
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<WeatherContext>(options =>
                   options.UseSqlite("Data Source=weather.db"));
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            return services.BuildServiceProvider();
         }
         
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -44,6 +46,8 @@ namespace Weather
             {
                 app.UseHsts();
             }
+
+            // var dbContext = serviceProvider.GetService<WeatherContext>();
 
             app.UseHttpsRedirection();
             app.UseMvc();

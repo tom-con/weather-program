@@ -54,6 +54,33 @@ namespace Models
                          Date = DateTime.Parse("2010-2-21"),
                          HighTemp = 84.3m,
                          LowTemp = 65.3m
+                    },
+
+                     new WeatherData
+                     {
+                         State = "NY",
+                         City = "New York City",
+                         Date = DateTime.Parse("2018-8-22"),
+                         HighTemp = 84.3m,
+                         LowTemp = 65.3m
+                     },
+
+                     new WeatherData
+                     {
+                         State = "MD",
+                         City = "Baltimore",
+                         Date = DateTime.Parse("2017-4-21"),
+                         HighTemp = 84.3m,
+                         LowTemp = 65.3m
+                     },
+
+                    new WeatherData
+                    {
+                         State = "NY",
+                         City = "New York City",
+                         Date = DateTime.Parse("2018-4-17"),
+                         HighTemp = 84.3m,
+                         LowTemp = 65.3m
                     }
                 );
                 context.SaveChanges();
