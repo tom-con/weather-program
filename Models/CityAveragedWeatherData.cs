@@ -1,8 +1,11 @@
 using System;
 
-namespace Models {
+namespace Models 
+{
+
     public class CityAveragedWeatherData 
     {
+        public int ID { get; set; }
         public string State { get; set; }
         public string City { get; set; }
         public decimal AverageHighTemp { get; set; }

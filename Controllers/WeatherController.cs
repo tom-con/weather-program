@@ -11,15 +11,16 @@ namespace Controllers
     [ApiController]
     public class WeatherController : Controller
     {
+        private WeatherService weather;
         
-        static void main(){
-            Services.WeatherService weather = new Services.WeatherService();
+        public WeatherController(){
+            WeatherService weather = new WeatherService();
         }
 
         [HttpGet]
         public ActionResult<string> Get()
         {
-            weather.AggregateWeatherData
+            // weather.AggregateWeatherData();
             return "hello";
         }
 
