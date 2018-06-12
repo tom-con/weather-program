@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Models;
 
-namespace sovos_weather.Services
+namespace Services
 {
-        public class WeatherService
+    public class WeatherService
     {
 
         // The "main" of this program. In essence the function that will be exposed externally. 
@@ -100,32 +101,14 @@ namespace sovos_weather.Services
             return thisCity;
         }
 
-        private decimal AveragedTemp(decimal current, decimal additional, int multiplier){
-            decimal multipliedAverage = current * multiplier;
-            multipliedAverage += additional;
-            return multipliedAverage / (multiplier + 1);
+        // Quick helper function to a new temperatures with
+        // an already aggregated average.
+        private decimal AveragedTemp(decimal currentTemps, decimal newTemp, int multiplier){
+            decimal multipliedAverageTemp = currentTemps * multiplier;
+            multipliedAverageTemp += newTemp;
+            return multipliedAverageTemp / (multiplier + 1);
         }
 
     }
     
-    public class WeatherData 
-    {
-        public string State { get; set; }
-        public string City { get; set; }
-        public DateTime Date { get; set; }
-        public decimal HighTemp { get; set; }
-        public decimal LowTemp { get; set; }
-    }
-        
-    // Slightly altered CityAveragedWeatherData to have a StartDate and EndDate
-    // to be used to show when the averaged weather data is valid.
-    public class CityAveragedWeatherData 
-    {
-        public string State { get; set; }
-        public string City { get; set; }
-        public decimal AverageHighTemp { get; set; }
-        public decimal AverageLowTemp { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-    }   
 }

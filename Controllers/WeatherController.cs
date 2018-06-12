@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WeatherService;
+using Services;
 
-namespace sovos_weather.Controllers
+namespace Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WeatherController : ControllerBase
+    public class WeatherController : Controller
     {
-        private WeatherService;
         
+        static void main(){
+            Services.WeatherService weather = new Services.WeatherService();
+        }
 
-        // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<string> Get()
         {
-            
-            return Json(weatherData);
+            weather.AggregateWeatherData
+            return "hello";
         }
 
         // GET api/values/5
