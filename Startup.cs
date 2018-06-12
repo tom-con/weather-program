@@ -31,6 +31,7 @@ namespace Weather
             services.AddDbContext<WeatherContext>(options =>
                   options.UseSqlite("Data Source=weather.db"));
         }
+        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -46,6 +47,7 @@ namespace Weather
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            SeedData.Initialize(app.ApplicationServices);
         }
     }
 }
