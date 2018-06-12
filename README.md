@@ -4,6 +4,8 @@ This program acts as an API to be able to average together weather datapoints in
 
 ## Getting Started
 
+_If you are just interested in the WeatherService.cs, please see [here](./Services/WeatherService.cs)._
+
 This project requires dotnet-sdk @ 2.1. You can download that [here](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview1).
 
 * Run the project with `dotnet run`.
