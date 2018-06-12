@@ -33,15 +33,14 @@ namespace Controllers
             {
                 var weatherData = _db.WeatherDatum.ToList();
                 var cityData = _ws.AggregateWeatherData(weatherData.ToArray());
-                return Json(cityData);
-                // foreach(CityAveragedWeatherData city in cityData)
-                // {
-                //     Console.Write(city);
-                //     _db.AveragedDatum.Add(city);
-                // }
-                // _db.SaveChanges();
-                // return "200: Aggregate datapoints successfully added to database: " +
-                //     Json(cityData);
+                foreach(CityAveragedWeatherData city in cityData)
+                {
+                    Console.Write(city);
+                    _db.AveragedDatum.Add(city);
+                }
+                _db.SaveChanges();
+                return "200: Aggregate datapoints successfully added to database: " +
+                Json(cityData);
             }
             catch (DbUpdateException ex) 
             {

@@ -15,6 +15,7 @@ This project requires dotnet-sdk @ 2.1. You can download that [here](https://www
 * Navigate to `http://localhost:61165/api/cities` to see all average city weather data points in the database.
 * Navigate to `http://localhost:61165/api/aggregate` to run the aggragation, which will aggregate all rows in the weather data points table into averages organized by city (available to view in the average city weather data table.
 * Update the database with `cURL` requests (both weather and cities can have CRUD operations performed against them):
+
 `curl -d '{"State":"WA", "City":"Seattle", "Date":"2018-06-12", "HighTemp":"72.1", "LowTemp":"34.2"}' -H "Content-Type: application/json" -X POST http://localhost:61165/api/weather`
 
 
